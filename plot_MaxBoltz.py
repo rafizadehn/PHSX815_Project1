@@ -14,14 +14,21 @@ def boltz(v,m,T):
 
 if __name__ == "__main__":
     if '-h' in sys.argv or '--help' in sys.argv:
-        print("Usage: %s -temp1 [temp1 file] -temp2 [temp2 file] -param [parameters file]" % sys.argv[0])
+        print("Usage: %s -temp1 [temp1 file] -temp2 [temp2 file] -param [parameters file] -nbins [number of bins]" % sys.argv[0])
         print
         sys.exit(1)
  
     # default temp1 file name
     temp1 = 'temp1.txt'
+
+    # default temp2 file name
     temp2 = 'temp2.txt'
+
+    # default parameters file name
     param = 'parameters.txt'
+    
+    # default number of bins
+    nb = 40
 
     # read the user-provided inputs from the command line (if there)
     if '-temp1' in sys.argv:
@@ -33,6 +40,9 @@ if __name__ == "__main__":
     if '-param' in sys.argv:
         p = sys.argv.index('-param')
         m = sys.argv[p+1]
+    if '-nbins' in sys.argv:
+        p = sys.argv.index('-nbins')
+        nb = int(sys.argv[p+1])
 
     ## import velocities of particles from gas at T1
     vel1 = []
@@ -74,8 +84,8 @@ if __name__ == "__main__":
 
     # plot the histograms of data
     
-    ax.hist(vel1,bins=40,density=True,fc='salmon',alpha=0.4,lw=0.6, label='T = '+str(int(T1))+' K', edgecolor = 'k')
-    ax.hist(vel2,bins=40,density=True,fc='c',alpha=0.4,lw=0.6, label='T = '+str(int(T2))+' K', edgecolor = 'k')
+    ax.hist(vel1,bins=nb,density=True,fc='salmon',alpha=0.4,lw=0.6, label='T = '+str(int(T1))+' K', edgecolor = 'k')
+    ax.hist(vel2,bins=nb,density=True,fc='c',alpha=0.4,lw=0.6, label='T = '+str(int(T2))+' K', edgecolor = 'k')
 
     # graph the actual calcualted Boltzmann ditribution for given input values
     vs = np.arange(0,1500)
