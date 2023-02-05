@@ -3,14 +3,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import erf
 from scipy.interpolate import interp1d as interp
+import scipy.stats as ss
+from scipy.stats import ttest_ind
+import math
+from statsmodels.stats.power import  tt_ind_solve_power
 
 # import our Random class from Random.py file
 sys.path.append(".")
 from Random import Random
 
+# import our MySort class from MySort.py file
+from MySort import MySort
+
 def boltz(v,m,T):
     kB = 1.38e-23
     return (m/(2*np.pi*kB*T))**1.5 * 4*np.pi * v**2 * np.exp(-m*v**2/(2*kB*T))
+
+def PSD(s1,s2):
+    n1, n2 = len(s1), len(s2)
+    var1, var2 = np.var(s1, ddof=1), np.var(s2, ddof=1)
+    num = ((n1-1) * var1) + ((n2-1) * var2)
+    den = n1+n2-2
+    return np.sqrt(num/den)
 
 if __name__ == "__main__":
     if '-h' in sys.argv or '--help' in sys.argv:
@@ -97,8 +111,69 @@ if __name__ == "__main__":
     ax.plot(vs,fv,'c',lw=2)
 
     plt.legend(fontsize = 15)
+
+    ## Analysis
+
+    # calculates t-statistic and p-value between both distributions
+    tstat, pv = ttest_ind(vel1, vel2)
+    
+    mean1 = np.mean(vel1)
+    mean2 = np.mean(vel2)
+
+    std1 = np.std(vel1)
+    std2 = np.std(vel2)
+   
+    # cumulative distribution function 
+
+    # ax.plot(vs, ss.norm.cdf(vs, mean2, std2), label='pdf')
+    # ax.plot(vs, ss.norm.cdf(vs, mean1, std1), label='cdf')
+
+    cdf1 = ss.norm.cdf(vs, mean1, std1)
+    cdf2 = ss.norm.cdf(vs, mean2, std2)
+
+    # sorter
+
+    Sorter = MySort()
+    s_vel1 = Sorter.QuickSort(vel1)
+    s_vel2 = Sorter.QuickSort(vel2)
+
+    crit_l1 = s_vel1[int(0.95 * N)]
+    crit_l2 = s_vel2[int(0.95 * N)]
+
+    s_pooled = PSD(vel1, vel2)
+    cd = (mean2-mean1)/s_pooled
+
+    effect_size = cd
+    sample_size = N
+    alpha = .05
+    ratio = 1.0
+    power = []
+    percentiles = np.arange(0.005, 1, 0.01)
+
+    for i in percentiles:
+        vel1_temp = vel1[0:int(i*N)]
+        vel2_temp = vel2[0:int(i*N)]
+        sp_temp = PSD(vel1_temp, vel2_temp)
+        cd_temp = (np.mean(vel2_temp)-np.mean(vel1_temp))/sp_temp
+        statistical_power = tt_ind_solve_power(effect_size=cd_temp, nobs1=len(vel1_temp), alpha=alpha, ratio=1.0, alternative='two-sided')
+        power.append(statistical_power)
+ 
+    plt.show()
+   
+    plt.figure()
+    plt.scatter(percentiles*N, power, c = 'crimson', alpha = 0.7, label= 'T = '+str(T2)+' K')
+    plt.xlim([0, N])
+    plt.ylim([0.05, 1])
+    plt.xlabel('Number of Particles Sampled', fontsize = 15)
+    plt.ylabel(r'Power (1 - $\beta$)', fontsize = 15)
+    plt.tick_params(axis='both', labelsize = 13)
+    plt.title('Statistical Power of H1 Compared to H0 (275 K) Per Sample Size', fontsize = 15, fontweight = "bold")
+    plt.legend(loc='lower right', fontsize = 15)
     plt.show()
 
-
+    with open(r'power_values.txt', 'w') as fp:
+        for item in power:
+            fp.write("%s\n" % item)
+    
 
 

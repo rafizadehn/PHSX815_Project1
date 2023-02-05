@@ -1,0 +1,134 @@
+\documentclass[%
+ reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+%% Added by me: this forces the table caption to be on top.
+\usepackage{floatrow}
+\usepackage{gensymb}
+\usepackage[thinc]{esdiff}
+\floatsetup[table]{capposition=top}
+
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{Generation and Analysis of Gas Particle Velocities from Maxwell-Boltzmann Distributions}% Force line breaks with \\
+
+\author{Neema Rafizadeh}
+\altaffiliation[Email: ]{ rafizadehn@ku.edu}
+\affiliation{%
+Department of Physics and Astronomy, University of Kansas, Lawrence, KS, 66045, USA\\
+% This line break forced with \textbackslash\textbackslash
+}%
+
+\date{\today}
+%\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+This experiment observed the behavior of a charged oil drop under the force of gravity and the force of an applied electric field to calculate the fundamental charge of an electron. By use of the fall and rise velocities of an oil drop in the chamber between two charged plates, the position and time of the oil drops can be precisely measured and used to calculate the fundamental charge of an electron. This fundamental charge was measured to be $(1.09\pm 0.15)\times10^{-19} \ \mathrm{C}$. This value, when compared to the textbook value of $1.6 \times 10^{-19} \ \mathrm{C}$, does not coincide within uncertainty.
+\end{abstract}
+
+
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+%\tableofcontents
+
+\section{Introduction \protect\\ }
+
+In modern science, we revolve much of our interest of materials and the natural world around one special particle - the electron. As a form of charged lepton, we have been curious about its properties since its discovery by J. J. Thompson in 1897 \cite{knight}. It has been speculated by many scientists since then that the charge carried by this particle is quantized, or only has discrete values. The first scientists in particular to speculate the quantization of this charge was Herman von Helmholtz in 1881 \cite{theodore}. Seemingly, this would be an easy thing to measure and to verify, yet it turns out it is rather difficult to determine directly.
+
+There are two options that can be considered when attempting to measure the charge of an electron. The first option is to use a large object that is charged, which is much more difficult as a larger object will have much more excess charge, and thus many more excess electrons. The second, and much more practical, option is to use a small object that will have very small excess charge, and thus fewer excess electrons, to better estimate the value of the fundamental charge \cite{manual}.
+
+\section{Hypotheses of Different Temperature Gases}
+The excess charge contained on an oil drop can be indirectly measured by observing the speed an oil drop falls in an electric field. This is best done using drops that fall at a slow rate. The slower drops naturally have less excess electrons whilst simultaneously having smaller mass and thus a smaller gravitational force pulling them toward the Earth, as shown in Fig. \ref{fig:force}. An electric field was then applied across two plates, causing the oil drops to rise back up to the top, charged plate. The measured fall velocity, $v_f$, and rise velocity, $v_r$, were used to calculate the excess charge on any one given oil drop. These along with the separation of the plates, $d$, density of the oil, $\rho$, and potential difference across the plates, $V$, come from the equation,
+
+\begin{equation}
+q=\frac{4}{3}\pi \rho g\left [  \sqrt{\left (\frac{b}{2p}\right )^2+\frac{9 \eta v_f}{2g\rho}}-\frac{b}{2p}\right ]^3\frac{v_f + v_r}{Ev_f}.
+\label{eq:big}
+\end{equation}
+
+Once the charges are calculated for the oil drops, the chi-squared values of the data can be calculated by running through a range of potential fundamental charges. The chi-squared, shown by,
+
+\begin{equation}
+\chi^2=\sum\frac{\left (  q_i-n_iq_o\right )^2}{\sigma_i^2},
+\end{equation}
+
+where the term $n_i$ is the nearest integer multiple of the potential fundamental charge multiplied to get the charge measured,
+
+\begin{equation}
+n_i=\mathrm{nint}(\frac{q_i}{q_o}).
+\end{equation}
+
+Once the chi-square values were plotted against the possible fundamental charge values, the minimum point around the degrees of freedom indicate the most likely fundamental charge that is in common with all the measured charges. All the subsequent local minima are theoretically, if charge is truly quantized, integer multiples of this value as well.
+
+\section{Code and Experimental Simulation}
+
+
+The diagram in Fig. \ref{fig:app} shows the basic path the oil drops take in the apparatus. Droplets were first sprayed into the chamber using an atomizer. To track the drops as they fell within the chamber, an array is built into the viewing lens of the viewing microscope and a camera put up to the viewing lens to record.
+
+Velocities were taken from the recording by use of a tracking software, as to lower the uncertainty and error on values of position and time. 
+
+\section{Analysis}
+
+The results of this method are shown in Fig. \ref{fig:data}. The reduced chi-squared values for each fundamental charge are plotted and a first local minima was found to be at $(1.09\times10^{-19}, 0.94)$. 
+
+This local minima implies a fundamental charge of $(1.09\pm 0.15)\times10^{-19} \ \mathrm{C}$. This compared to the charge that Millikan originally measured, $1.6 \times 10^{-19} \ \mathrm{C}$, is much less and not within the range of uncertainty for the measurement in this experiment. From the graph shown in Fig. \ref{fig:data}, the determination of the quantization of charge is inconclusive as the minima are not integer multiples of the first minima value.
+
+Our value was then compared to the previous group's data and combined, then compared to the textbook value as shown in Fig. \ref{fig:plot}. The previous group's data was much closer to the accepted value, and adding their points to our data managed to shift our resulting charge to fall within uncertainty range of it as well.
+
+\section{Conclusion}
+This experiment observed the behavior of a charged oil drop under the force of gravity and the force of an applied electric field to calculate the fundamental charge of an electron. This fundamental charge was measured to be $(1.09\pm 0.15)\times10^{-19} \ \mathrm{C}$ through the use of Eq. \ref{eq:big}. This value, when compared to the textbook value of $1.6 \times 10^{-19} \ \mathrm{C}$, does not coincide within uncertainty. This is likely due to the large error in the voltage being delivered to the plates. Once the apparatus is turned on, the voltage delivered to the plates began to rise at a steady rate. This variation, about 10\%, can cause a large deviation in the measured charges in the drops over time as the drops were measured over the course of 10 to 20 minutes, and not accounted for in the final measurement.  
+
+Using the plotted data, it was also analyzed to determine the quantization of charge. The correlation of the chi-squared minima in the plot show it to be conclusive whether charge is quantized or not, as it shows that charge is  quantized by the value obtained to be the fundamental charge and the following dips as multiples of it. 
+
+The overall chi-squared analysis for this experiment could be improved by ultimately taking more measurements of additional drops. This would allow for shifting and smoothing of the chi-squared plot and would push the first local minimum closer to the accepted value of the fundamental charge. In the future, we hope to combine our data with previous students to create a larger data set for our calculated value.
+
+% The \nocite command causes all entries in a bibliography to be printed out
+% whether or not they are actually referenced in the text. This is appropriate
+% for the sample file to show the different styles of references, but authors
+% most likely will not want to use it.
+\nocite{*}
+
+\bibliography{report_template}% Produces the bibliography via BibTeX.
+
+\end{document}
+
+%
+% ****** End of file apssamp.tex ******
