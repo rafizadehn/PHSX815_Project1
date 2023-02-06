@@ -36,6 +36,8 @@
 %]{geometry}
 
 %% Added by me: this forces the table caption to be on top.
+\usepackage{lipsum}
+\usepackage{hyperref}
 \usepackage{floatrow}
 \usepackage{gensymb}
 \usepackage[thinc]{esdiff}
@@ -60,7 +62,8 @@ Department of Physics and Astronomy, University of Kansas, Lawrence, KS, 66045, 
              %  but any date may be explicitly specified
 
 \begin{abstract}
-This experiment observed the behavior of a charged oil drop under the force of gravity and the force of an applied electric field to calculate the fundamental charge of an electron. By use of the fall and rise velocities of an oil drop in the chamber between two charged plates, the position and time of the oil drops can be precisely measured and used to calculate the fundamental charge of an electron. This fundamental charge was measured to be $(1.09\pm 0.15)\times10^{-19} \ \mathrm{C}$. This value, when compared to the textbook value of $1.6 \times 10^{-19} \ \mathrm{C}$, does not coincide within uncertainty.
+
+This experiment observed the ability for an apartment tenant to decide whether to trust their landlord about the air conditioner in their unit. To determine whether their apartment was actually a different temperature than the temperature outside, individual gas particles were sampled for their velocities and collected into a distribution. This was then compared to the null hypothesis and a statistical power analysis was performed. The number of particles was found to be less than 250 particles sampled to reach an 80\% confidence level in the ability to resolve the distributions. 
 \end{abstract}
 
 
@@ -72,53 +75,88 @@ This experiment observed the behavior of a charged oil drop under the force of g
 
 \section{Introduction \protect\\ }
 
-In modern science, we revolve much of our interest of materials and the natural world around one special particle - the electron. As a form of charged lepton, we have been curious about its properties since its discovery by J. J. Thompson in 1897 \cite{knight}. It has been speculated by many scientists since then that the charge carried by this particle is quantized, or only has discrete values. The first scientists in particular to speculate the quantization of this charge was Herman von Helmholtz in 1881 \cite{theodore}. Seemingly, this would be an easy thing to measure and to verify, yet it turns out it is rather difficult to determine directly.
+Many physical systems studied in modern physics research follow the Maxwell-Boltzmann (MiB) distribution. From the study of electron diffusion in the semi-metal graphene to the modeling of photon interactions between a laser and a solid in photonics, the M-B distribution has proven to have great utility in explaining observed physical phenomena. The distrubtion has more fundamental roots in its derivation from the first principles of mass, temperature, and velocity of gas particles, though how well can M-B curves truly be distinguished from one another?  
 
-There are two options that can be considered when attempting to measure the charge of an electron. The first option is to use a large object that is charged, which is much more difficult as a larger object will have much more excess charge, and thus many more excess electrons. The second, and much more practical, option is to use a small object that will have very small excess charge, and thus fewer excess electrons, to better estimate the value of the fundamental charge \cite{manual}.
+If there exists a room that has an unknown temperature, the M-B distribution can be used to experimentally determine its temperature by sampling particles from the gas in equilibrium in the room. The process of removing individual gas particles from a room and measuring its velocity by hand turns out to be quite arduous and taxing, thus determining the fewest number of particles that need to be sampled before a temperature can be determined is useful to know.
+
+Take, for example, an apartment resident is told that their unit has an air conditioner set at 310 K while the temperature outside the building is 275 K. If the resident thinks their landlord is lying, they might want to determine if the air conditioner exists without access to the conditioner itself. If they are able to measure the velocities of individual gas particles in the room, they can tell whether the conditioner is functioning by sampling the M-B distribution. The questions that they must consider become: \textit{are the possible temperatures too close to be distinguished experimentally?} and \textit{how many particles do we need to measure before we can tell?}
+
+Through probability statistics and power analysis, these questions can be answered and save people from countless hours of measuring velocities of gas particles by hand. Maybe this isn't a real problem. Oh well. Onward anyway\dots \textit{for science}.
 
 \section{Hypotheses of Different Temperature Gases}
-The excess charge contained on an oil drop can be indirectly measured by observing the speed an oil drop falls in an electric field. This is best done using drops that fall at a slow rate. The slower drops naturally have less excess electrons whilst simultaneously having smaller mass and thus a smaller gravitational force pulling them toward the Earth, as shown in Fig. \ref{fig:force}. An electric field was then applied across two plates, causing the oil drops to rise back up to the top, charged plate. The measured fall velocity, $v_f$, and rise velocity, $v_r$, were used to calculate the excess charge on any one given oil drop. These along with the separation of the plates, $d$, density of the oil, $\rho$, and potential difference across the plates, $V$, come from the equation,
 
-\begin{equation}
-q=\frac{4}{3}\pi \rho g\left [  \sqrt{\left (\frac{b}{2p}\right )^2+\frac{9 \eta v_f}{2g\rho}}-\frac{b}{2p}\right ]^3\frac{v_f + v_r}{Ev_f}.
-\label{eq:big}
-\end{equation}
+The M-B distribution is derived from basic physics principles based on some assumptions, namely that the gas particles are non-interacting, non-relativstic, and in thermal equilibrium. If this is the case, then the probability that you find a particle with a particular velocity is given by,
+\[
+	f(m, v, T) = \left( \frac{m}{2\pi k T} \right)^{1/2}4\pi v^2 e^{-\frac{mv^2}{2kT}},
+\]
+where $m$ represents the molecular mass of the particles and $T$ represents the equilibrium temperature of the gas. Two examples of this probability distribution are plotted in Fig. 1 with temperatures 100 K and 1000 K. 
 
-Once the charges are calculated for the oil drops, the chi-squared values of the data can be calculated by running through a range of potential fundamental charges. The chi-squared, shown by,
+\begin{figure}[h]
+	\caption{Probability density for gas particle velocity at differing temperatures, 100 k and 1000 K. Values taken for a gas with an 85 amu molecular mass. }
+	\centering
+	\includegraphics[scale=0.51]{hypothesis1.png}
+\end{figure}
 
-\begin{equation}
-\chi^2=\sum\frac{\left (  q_i-n_iq_o\right )^2}{\sigma_i^2},
-\end{equation}
+Note this is a probability \textit{density}, not a direct probability. Thus, the probability can be calculated through integration over a range of particle velocity. This means that the probability to find a particle at one particular velocity is 0 m/s as the integral will have the same two bounds. Because of this, many statisticians plot cumulative density functions which represent the area under the curve of the probability density function up to a given value of velocity.
 
-where the term $n_i$ is the nearest integer multiple of the potential fundamental charge multiplied to get the charge measured,
-
-\begin{equation}
-n_i=\mathrm{nint}(\frac{q_i}{q_o}).
-\end{equation}
-
-Once the chi-square values were plotted against the possible fundamental charge values, the minimum point around the degrees of freedom indicate the most likely fundamental charge that is in common with all the measured charges. All the subsequent local minima are theoretically, if charge is truly quantized, integer multiples of this value as well.
 
 \section{Code and Experimental Simulation}
 
+The plots in Fig. 1 are idealized curves that are plotted directly from the M-B distribution equation. To simulate a real experiment sampling gas particles, a random number generator is used in conjunction with the M-B equation and plotted as a histogram shown in Fig. 2.
 
-The diagram in Fig. \ref{fig:app} shows the basic path the oil drops take in the apparatus. Droplets were first sprayed into the chamber using an atomizer. To track the drops as they fell within the chamber, an array is built into the viewing lens of the viewing microscope and a camera put up to the viewing lens to record.
+\begin{figure}[h]
+\caption{Histogram of particle velocities taken at a N = 1000 sample size. Values taken for a gas with an 85 amu molecular mass.}
+\centering
+	\includegraphics[scale=0.51]{code1}
+\end{figure}
 
-Velocities were taken from the recording by use of a tracking software, as to lower the uncertainty and error on values of position and time. 
+As seen in the Fig. 2, the randomly generated velecity values closely resemble the idealized curves from before. See Appendix B to reference how the randomly generated velocities fit better at high sample size. The temperatures shown in Figs 1. and 2. were chosen to be 100 K and 1000 K for demonstration, but this does not help the tenant in the apartment on the hunt for their elusive air conditioner. The temperatures used in the experiment are 275 K, which represents the null hyposthesis (H$_0$), and 320 K, which represents our hypothesis we are testing against the null (H$_1$).
 
-\section{Analysis}
+With temperatures so close together in value, it may not be as obvious to resolve the curves as it is with the 100 K and 1000 K curves. See Appendix C for a graphical representation of the 275 K and 320 K histograms next to one another. Instead of resolving our curves graphically, we will use a statistical power analysis to differentiate between the data we collect and the data from the null hypothesis. Through analysis of our type II errors (referred to as the value $\beta$), we can determine how often our data indicates the null hypothesis when it is in fact the higher temperature, and then calculate our statistical power ($1-\beta$) from that. The statistical power is essentially the reverse of the type II error, it tells us how often we reject the null hypothesis when we should, in fact, reject it. The higher the statistical power, the easier it is to distinguish data from the two temperatures, and thus the easier it will be for the apartment tenant to determine whether his landlord is juking him with his air conditioner. 
 
-The results of this method are shown in Fig. \ref{fig:data}. The reduced chi-squared values for each fundamental charge are plotted and a first local minima was found to be at $(1.09\times10^{-19}, 0.94)$. 
+\section{Results and Analysis}
 
-This local minima implies a fundamental charge of $(1.09\pm 0.15)\times10^{-19} \ \mathrm{C}$. This compared to the charge that Millikan originally measured, $1.6 \times 10^{-19} \ \mathrm{C}$, is much less and not within the range of uncertainty for the measurement in this experiment. From the graph shown in Fig. \ref{fig:data}, the determination of the quantization of charge is inconclusive as the minima are not integer multiples of the first minima value.
+The results of this method are shown in Fig. 3 for 320 K, but also for other temperatures in the range of 290-330 K.
 
-Our value was then compared to the previous group's data and combined, then compared to the textbook value as shown in Fig. \ref{fig:plot}. The previous group's data was much closer to the accepted value, and adding their points to our data managed to shift our resulting charge to fall within uncertainty range of it as well.
+\begin{figure}[h]
+	\caption{Statistical power plotted as a function of sample size. Statistical power is the ability to resolve the positive hypothesis (H$_1$) to the null hypothesis (H$_0$). }
+	\centering
+	\includegraphics[scale=0.51]{results1.png}
+\end{figure}
+
+The different temperatures in Fig. 3 show the difference in statistical power per sample size in comparison to the other temperatures. Statisticians regard 0.8 to be a statistical power significant enough to consider two distributions resolvable, and as the temperature increaes, it reaches that confidence level in much fewer number of sampled particles. Since the apartment tenant is trying to resolve a temperature of 320 K, they would need to sample roughly 250 particles before reaching the 80\% confidence level.
 
 \section{Conclusion}
-This experiment observed the behavior of a charged oil drop under the force of gravity and the force of an applied electric field to calculate the fundamental charge of an electron. This fundamental charge was measured to be $(1.09\pm 0.15)\times10^{-19} \ \mathrm{C}$ through the use of Eq. \ref{eq:big}. This value, when compared to the textbook value of $1.6 \times 10^{-19} \ \mathrm{C}$, does not coincide within uncertainty. This is likely due to the large error in the voltage being delivered to the plates. Once the apparatus is turned on, the voltage delivered to the plates began to rise at a steady rate. This variation, about 10\%, can cause a large deviation in the measured charges in the drops over time as the drops were measured over the course of 10 to 20 minutes, and not accounted for in the final measurement.  
+The temperature of 320 K is far enough away from the temperature outside of the apartment (275 K) that the tenant of the apartment will be able to tell whether or not the landlord is lying to them at a 80\% confidence level from less than 300 particles measured. Through the use of statistical power analysis, two distributions were able to be resolved from one another. 
 
-Using the plotted data, it was also analyzed to determine the quantization of charge. The correlation of the chi-squared minima in the plot show it to be conclusive whether charge is quantized or not, as it shows that charge is  quantized by the value obtained to be the fundamental charge and the following dips as multiples of it. 
+Not sure what else to write. I will think of something. I am so sorry you had to read this, its very boring. I had no better ideas for the project. This seemed like the easiest thing to do haha.
 
-The overall chi-squared analysis for this experiment could be improved by ultimately taking more measurements of additional drops. This would allow for shifting and smoothing of the chi-squared plot and would push the first local minimum closer to the accepted value of the fundamental charge. In the future, we hope to combine our data with previous students to create a larger data set for our calculated value.
+filling space for formatting: \lipsum[1-2]
+
+\acknowledgements
+
+I would like to thank Prof. Chris Rogan for his continued support in the course. I would also like to apologize to the student who was assigned to me for peer review.
+
+\appendix
+\section{Raw Data}
+
+All python scripts and data generated are contained in \href{https://github.com/rafizadehn/PHSX815_Project1}{\textcolor{blue}{Neema Rafizadeh's GitHub repository for this project.}}
+
+\section{Histogram of Particle Velocities at Large Sample Size}
+
+\begin{figure}[H]
+	\caption{Histogram of randomly generated particles in a Maxwell-Boltzmann distribution. Number of particles generated is at N = 100,000 particles ($10^5$).}
+	\centering
+	\includegraphics[scale=0.5]{appendix1.png}
+\end{figure}
+
+\section{Histogram of Particle Velocities at Scenario's Temperatures}
+
+\begin{figure}[H]
+	\caption{Probability density for gas particle velocity at differing temperatures, 275 k and 320 K. Values taken for a gas with an 85 amu molecular mass. }	
+	\centering
+	\includegraphics[scale=0.5]{appendix2.png}
+\end{figure}
 
 % The \nocite command causes all entries in a bibliography to be printed out
 % whether or not they are actually referenced in the text. This is appropriate

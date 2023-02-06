@@ -39,7 +39,7 @@ if __name__ == "__main__":
     # default temp2 (in kelvin)
     T2 = 1000
     
-    # default number of electrons 
+    # default number of particles 
     N = 1000
 
     # default seed
@@ -52,8 +52,8 @@ if __name__ == "__main__":
     if '-seed' in sys.argv:
         p = sys.argv.index('-seed')
         seed = sys.argv[p+1]
-    if '-Nelc' in sys.argv:
-        p = sys.argv.index('-Nelc')
+    if '-Nexp' in sys.argv:
+        p = sys.argv.index('-Nexp')
         N = int(sys.argv[p+1])
     if '-mass' in sys.argv:
         p = sys.argv.index('-mass')

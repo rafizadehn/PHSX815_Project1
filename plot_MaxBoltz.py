@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     ax.set_xlabel('Speed (m/s)', fontsize = 15)
     ax.set_ylabel('Probability Density', fontsize = 15)
-    ax.set_title('Velocities of Particles in a Gas with Molecular Mass m = '+str(int(m))+' amu', fontsize = 15)
+    # ax.set_title('Velocities of Particles in a Gas with Molecular Mass m = '+str(int(m))+' amu', fontsize = 15)
     ax.tick_params(axis='both', labelsize=13)
 
     # plot the histograms of data
@@ -105,10 +105,12 @@ if __name__ == "__main__":
     vs = np.arange(0,1500)
     fv = boltz(vs,mass,T1)
     ax.plot(vs,fv,'salmon',lw=2)
+    
+    plt.grid(True, alpha = 0.7, linestyle='--')
 
     vs = np.arange(0,1500)
     fv = boltz(vs,mass,T2)
-    ax.plot(vs,fv,'c',lw=2)
+    ax.plot(vs,fv,'c',lw=2, linestyle = '--')
 
     plt.legend(fontsize = 15)
 
