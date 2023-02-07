@@ -63,7 +63,7 @@ Department of Physics and Astronomy, University of Kansas, Lawrence, KS, 66045, 
 
 \begin{abstract}
 
-This experiment observed the ability for an apartment tenant to decide whether to trust their landlord about the air conditioner in their unit. To determine whether their apartment was actually a different temperature than the temperature outside, individual gas particles were sampled for their velocities and collected into a distribution. This was then compared to the null hypothesis and a statistical power analysis was performed. The number of particles was found to be less than 250 particles sampled to reach an 80\% confidence level in the ability to resolve the distributions. 
+This experiment observed the ability for an apartment tenant to decide whether to trust their landlord about the furnace in their unit. To determine whether their apartment was actually a different temperature than the temperature outside, individual gas particles were sampled for their velocities and collected into a distribution. This was then compared to the null hypothesis and a statistical power analysis was performed. The number of particles was found to be less than 250 particles sampled to reach an 80\% confidence level in the ability to resolve the distributions. 
 \end{abstract}
 
 
@@ -79,7 +79,7 @@ Many physical systems studied in modern physics research follow the Maxwell-Bolt
 
 If there exists a room that has an unknown temperature, the M-B distribution can be used to experimentally determine its temperature by sampling particles from the gas in equilibrium in the room. The process of removing individual gas particles from a room and measuring its velocity by hand turns out to be quite arduous and taxing, thus determining the fewest number of particles that need to be sampled before a temperature can be determined is useful to know.
 
-Take, for example, an apartment resident is told that their unit has an air conditioner set at 310 K while the temperature outside the building is 275 K. If the resident thinks their landlord is lying, they might want to determine if the air conditioner exists without access to the conditioner itself. If they are able to measure the velocities of individual gas particles in the room, they can tell whether the conditioner is functioning by sampling the M-B distribution. The questions that they must consider become: \textit{are the possible temperatures too close to be distinguished experimentally?} and \textit{how many particles do we need to measure before we can tell?}
+Take, for example, an apartment resident is told that their unit has an furnace set at 310 K while the temperature outside the building is 275 K. If the resident thinks their landlord is lying, they might want to determine if the air conditioner exists without access to the conditioner itself. If they are able to measure the velocities of individual gas particles in the room, they can tell whether the conditioner is functioning by sampling the M-B distribution. The questions that they must consider become: \textit{are the possible temperatures too close to be distinguished experimentally?} and \textit{how many particles do we need to measure before we can tell?}
 
 Through probability statistics and power analysis, these questions can be answered and save people from countless hours of measuring velocities of gas particles by hand. Maybe this isn't a real problem. Oh well. Onward anyway\dots \textit{for science}.
 
@@ -110,9 +110,9 @@ The plots in Fig. 1 are idealized curves that are plotted directly from the M-B 
 	\includegraphics[scale=0.51]{code1}
 \end{figure}
 
-As seen in the Fig. 2, the randomly generated velecity values closely resemble the idealized curves from before. See Appendix B to reference how the randomly generated velocities fit better at high sample size. The temperatures shown in Figs 1. and 2. were chosen to be 100 K and 1000 K for demonstration, but this does not help the tenant in the apartment on the hunt for their elusive air conditioner. The temperatures used in the experiment are 275 K, which represents the null hyposthesis (H$_0$), and 320 K, which represents our hypothesis we are testing against the null (H$_1$).
+As seen in the Fig. 2, the randomly generated velecity values closely resemble the idealized curves from before. See Appendix B to reference how the randomly generated velocities fit better at high sample size. The temperatures shown in Figs 1. and 2. were chosen to be 100 K and 1000 K for demonstration, but this does not help the tenant in the apartment on the hunt for their elusive furnace. The temperatures used in the experiment are 275 K, which represents the null hyposthesis (H$_0$), and 320 K, which represents our hypothesis we are testing against the null (H$_1$).
 
-With temperatures so close together in value, it may not be as obvious to resolve the curves as it is with the 100 K and 1000 K curves. See Appendix C for a graphical representation of the 275 K and 320 K histograms next to one another. Instead of resolving our curves graphically, we will use a statistical power analysis to differentiate between the data we collect and the data from the null hypothesis. Through analysis of our type II errors (referred to as the value $\beta$), we can determine how often our data indicates the null hypothesis when it is in fact the higher temperature, and then calculate our statistical power ($1-\beta$) from that. The statistical power is essentially the reverse of the type II error, it tells us how often we reject the null hypothesis when we should, in fact, reject it. The higher the statistical power, the easier it is to distinguish data from the two temperatures, and thus the easier it will be for the apartment tenant to determine whether his landlord is juking him with his air conditioner. 
+With temperatures so close together in value, it may not be as obvious to resolve the curves as it is with the 100 K and 1000 K curves. See Appendix C for a graphical representation of the 275 K and 320 K histograms next to one another. Instead of resolving our curves graphically, we will use a statistical power analysis to differentiate between the data we collect and the data from the null hypothesis. Through analysis of our type II errors (referred to as the value $\beta$), we can determine how often our data indicates the null hypothesis when it is in fact the higher temperature, and then calculate our statistical power ($1-\beta$) from that. The statistical power is essentially the reverse of the type II error, it tells us how often we reject the null hypothesis when we should, in fact, reject it. The higher the statistical power, the easier it is to distinguish data from the two temperatures, and thus the easier it will be for the apartment tenant to determine whether his landlord is juking him with his furnace. 
 
 \section{Results and Analysis}
 
@@ -126,21 +126,28 @@ The results of this method are shown in Fig. 3 for 320 K, but also for other tem
 
 The different temperatures in Fig. 3 show the difference in statistical power per sample size in comparison to the other temperatures. Statisticians regard 0.8 to be a statistical power significant enough to consider two distributions resolvable, and as the temperature increaes, it reaches that confidence level in much fewer number of sampled particles. Since the apartment tenant is trying to resolve a temperature of 320 K, they would need to sample roughly 250 particles before reaching the 80\% confidence level.
 
+This makes intuitive sense as if the distribution is farther away from the null hypothesis, the tenant is more likely to pick a particle that does not fall within the range of the null hypothesis and determine quickly that they are able to reject it. For a temperature very close to the temperature of the null hypothesis, 275 K, it will require many more sampled particles before the tenant can confidently say they have a working furnace. This is demonstrated by the trend shown in Fig. 3 by the different temperature values. 
+
 \section{Conclusion}
+
+A random number generator was used to sample velocity values from the Maxwell-Boltzmann distribution with a temperature parameter of 275 K and plotted into a histogram. Using this as the null hypethesis for the experiment, gas particles from the air were sampled from an apartment complex unit and compared against the null hypothesis to determine whether the complex had provided a furnace for the unit. The statistical power was calculcated for different amount of sampled particles and a confidence level was found that could be used to determine the state of the furnace in the complex.
+
 The temperature of 320 K is far enough away from the temperature outside of the apartment (275 K) that the tenant of the apartment will be able to tell whether or not the landlord is lying to them at a 80\% confidence level from less than 300 particles measured. Through the use of statistical power analysis, two distributions were able to be resolved from one another. 
+
+In the future, this distribution can be studied further by changing other parameters of the M-B distribution. This may include things such as the mass or exploring some similar distributions that do not have the same assumptions. 
 
 Not sure what else to write. I will think of something. I am so sorry you had to read this, its very boring. I had no better ideas for the project. This seemed like the easiest thing to do haha.
 
-filling space for formatting: \lipsum[1-2]
+filling space for formatting: \lipsum[1]
 
 \acknowledgements
 
-I would like to thank Prof. Chris Rogan for his continued support in the course. I would also like to apologize to the student who was assigned to me for peer review.
+I would like to thank Prof. Chris Rogan for his continued support in the course. I would also like to thank (and apologize to) the student who was assigned to me for peer review.
 
 \appendix
 \section{Raw Data}
 
-All python scripts and data generated are contained in \href{https://github.com/rafizadehn/PHSX815_Project1}{\textcolor{blue}{Neema Rafizadeh's GitHub repository for this project.}}
+All python scripts and data generated are contained in \href{https://github.com/rafizadehn/PHSX815_Project1}{\textcolor{blue}{Neema Rafizadeh's GitHub repository for this project.}} Instructions for running the scripts and changing the inputs
 
 \section{Histogram of Particle Velocities at Large Sample Size}
 

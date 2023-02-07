@@ -18,26 +18,28 @@ def inv_boltz(v,m,T):
     return erf(v/(np.sqrt(2)*a)) - np.sqrt(2/np.pi)* v* np.exp(-v**2/(2*a**2))/a
 
 def velocities(n, seed):
+    # this uses a random number generator from 
+    # Dr. Christopher Rogan's GitHub repository.
+    # If you cannot access this, numpy can be used with:
+    # np.random.rand(n)
     random = Random(seed)
-    # rand_nums = np.random.rand(n)
     vals = []
     for i in range(0, n):
-        vals.append(random.rand()
-    )
+        vals.append(random.rand())
     vel = inv_cdf(vals)
     return vel
 
 if __name__ == "__main__":
     if '-h' in sys.argv or '--help' in sys.argv:
-        print("Usage: %s -temp1 [temperature (k)] -temp2 [temperature (k)] -seed [seed] -Nelc [number of electrons] -mass [mass in amu]" % sys.argv[0])
+        print("Usage: %s -temp1 [temperature (k)] -temp2 [temperature (k)] -seed [seed] -Nexp [number of particles sampled] -mass [mass in amu]" % sys.argv[0])
         print
         sys.exit(1)
 
     # default temp1 (in kelvin)
-    T1 = 100
+    T1 = 275
 
     # default temp2 (in kelvin)
-    T2 = 1000
+    T2 = 320
     
     # default number of particles 
     N = 1000
