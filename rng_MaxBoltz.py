@@ -31,7 +31,7 @@ def velocities(n, seed):
 
 if __name__ == "__main__":
     if '-h' in sys.argv or '--help' in sys.argv:
-        print("Usage: %s -temp1 [temperature (k)] -temp2 [temperature (k)] -seed [seed] -Nexp [number of particles sampled] -mass [mass in amu]" % sys.argv[0])
+        print("Usage: %s -temp1 [temperature (k)] -temp2 [temperature (k)] -seed [seed] -Nmeas [number of particles sampled] -mass [mass in amu]" % sys.argv[0])
         print
         sys.exit(1)
 
@@ -54,8 +54,8 @@ if __name__ == "__main__":
     if '-seed' in sys.argv:
         p = sys.argv.index('-seed')
         seed = sys.argv[p+1]
-    if '-Nexp' in sys.argv:
-        p = sys.argv.index('-Nexp')
+    if '-Nmeas' in sys.argv:
+        p = sys.argv.index('-Nmeas')
         N = int(sys.argv[p+1])
     if '-mass' in sys.argv:
         p = sys.argv.index('-mass')

@@ -120,8 +120,8 @@ if __name__ == "__main__":
     
     ### histogram plot details
     
-    # title in case you want it:
-    # ax.set_title('Velocities of Particles in a Gas with Molecular Mass m = '+str(int(m))+' amu', fontsize = 15)    
+    # title in case you want it. remove if adding to paper.
+    ax.set_title('Velocities of Particles in a Gas with Molecular Mass m = '+str(int(m))+' amu', fontsize = 15)    
 
     ax.set_xlabel('Speed (m/s)', fontsize = 15)
     ax.set_ylabel('Probability Density', fontsize = 15)
@@ -183,6 +183,7 @@ if __name__ == "__main__":
     plt.xlabel('Number of Particles Sampled', fontsize = 15)
     plt.ylabel(r'Power (1 - $\beta$)', fontsize = 15)
     plt.tick_params(axis='both', labelsize = 13)
+    ## title in case you want it. remove if adding to paper.
     plt.title('Statistical Power of H1 Compared to H0 (275 K) Per Sample Size', fontsize = 15, fontweight = "bold")
     plt.legend(loc='lower right', fontsize = 15)
     plt.show()
