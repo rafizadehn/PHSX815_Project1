@@ -62,9 +62,8 @@ The script will then plot the data as a histogram, and provide a stastical power
 
 Any set of similarly formatted data can be put into this file to be run through the use of the `-temp1`, `-temp2`, and `-param` arguments. The `-temp1` argument specifies the name of the .txt file containing the velocity data at the first temperature value. Similarly, `-temp2` specifies the name of the .txt file that contains the velocity data at the second temperature value. The `-param` argument specifies the name of the .txt file containing the values of the temperature of the gases, the molecular mass, and the number of particles generated.
 
+![pic1](https://user-images.githubusercontent.com/76142511/218628962-a6cbf1ad-71e7-4460-99df-b18df8cb4931.png)
 
-
-
-
+![pic2](https://user-images.githubusercontent.com/76142511/218628977-a798c0cc-4cb5-47c1-90d6-a6e9817c5a0e.png)
 
 
