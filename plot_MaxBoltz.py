@@ -121,7 +121,7 @@ if __name__ == "__main__":
     ### histogram plot details
     
     # title in case you want it. remove if adding to paper.
-    ax.set_title('Velocities of Particles in a Gas with Molecular Mass m = '+str(int(m))+' amu', fontsize = 15)    
+    ax.set_title('Velocities of Particles in a Gas with Molecular Mass m = '+str(int(m))+' amu', fontsize = 15, fontweight = 'bold')    
 
     ax.set_xlabel('Speed (m/s)', fontsize = 15)
     ax.set_ylabel('Probability Density', fontsize = 15)
