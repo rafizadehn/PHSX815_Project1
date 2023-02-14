@@ -24,7 +24,7 @@ These values can be altered from the command line in the terminal by simply addi
 
 For example, it may looks something like this in linux:
 
-> $ python3 rng.MaxBoltz.py -temp1 100 -temp2 1000
+> $ python3 rng_MaxBoltz.py -temp1 100 -temp2 1000
 
 which would generate the values at 100 K and 1000 K, and keep the other parameters the same. The parameters chosen for this file are written to a text file called `parameters.txt`. This allows for the analysis script to read the parameters that were used in the generation file for more efficient analysis.
 
