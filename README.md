@@ -1,8 +1,10 @@
 # Project 1 - Velocities of Gas Particles in a Boltzmann Distribution
 
+**Formal write up is located in this repository, named "Rafizadeh_WRITEUP.pdf"**
+
 ## Data Generation
 
-The velocity measurements are made by the `rng.MaxBoltz.py` python file. This file requires python3 to run, and includes the following packages listed at the top of the script:
+The velocity measurements are made by the `rng_MaxBoltz.py` python file. This file requires python3 to run, and includes the following packages listed at the top of the script:
 
 ```
   import sys
@@ -28,13 +30,25 @@ which would generate the values at 100 K and 1000 K, and keep the other paramete
 
 ## Data Analysis
 
+The generated data is plotted and analyzed by the `plot_MaxBoltz.py` python file. This file requires python3 to run, and includes the following packages listed at the top of the script:
+
+```
+  import sys
+  import numpy as np
+  import matplotlib.pyplot as plt
+  import scipy.stats as ss
+  from scipy.stats import ttest_ind
+  import math
+  from statsmodels.stats.power import  tt_ind_solve_power
+```
+
 To run this script from the terminal in linux, run:
 
 > plot_MaxBoltz.py
 
 This creates plot from an input data set and analyzes it. By default, it will analyze the data generated and outputted by the rng_MaxBoltz.py file, yet any data file can be used as an input by use of some arguments.
 
-### Using the `rng_MaxBoltz.py` generated data.
+### Using the `rng_MaxBoltz.py` generated data:
 
 The anaylsis file is set to read the output of the generator file by default, no arguments need to be added for the data import. The only arguments that you may want to change is the number of bins plotted in the histogram graph, and the type I error given for the statistical power analysis. These can be defined with `-nbins` and `-alpha` by,
 
@@ -44,7 +58,7 @@ which sets the number of bins used in the histogram plot as 50 bins, and the typ
 
 The script will then plot the data as a histogram, and provide a stastical power analysis for different values of Nmeas, the number of particles measured.
 
-### NOT using the `rng_MaxBoltz.py` generated data.
+### NOT using the `rng_MaxBoltz.py` generated data:
 
 Any set of similarly formatted data can be put into this file to be run through the use of the `-temp1`, `-temp2`, and `-param` arguments. The `-temp1` argument specifies the name of the .txt file containing the velocity data at the first temperature value. Similarly, `-temp2` specifies the name of the .txt file that contains the velocity data at the second temperature value. The `-param` argument specifies the name of the .txt file containing the values of the temperature of the gases, the molecular mass, and the number of particles generated.
 
