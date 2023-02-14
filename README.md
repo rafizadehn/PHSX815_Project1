@@ -44,7 +44,7 @@ The generated data is plotted and analyzed by the `plot_MaxBoltz.py` python file
 
 To run this script from the terminal in linux, run:
 
-> python3 plot_MaxBoltz.py
+> $ python3 plot_MaxBoltz.py
 
 This creates plot from an input data set and analyzes it. By default, it will analyze the data generated and outputted by the rng_MaxBoltz.py file, yet any data file can be used as an input by use of some arguments.
 
