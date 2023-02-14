@@ -5,16 +5,14 @@
 The velocity measurements are made by the `rng.MaxBoltz.py` python file. This file requires python3 to run, and includes the following packages listed at the top of the script:
 
 ```
-{
   import sys
   import numpy as np
   import matplotlib.pyplot as plt
   from scipy.special import erf
   from scipy.interpolate import interp1d as interp
-}
 ```
 
-To run this script from the terminal, run:
+To run this script from the terminal in linux, run:
 
 > $ python3 rng_MaxBoltz.py
 
@@ -22,7 +20,7 @@ This runs the file with the default parameters, which are: 275 K as the first te
 
 These values can be altered from the command line in the terminal by simply adding an argument after the file name. The arguments to change these include `-temp1`, `-temp2`, `-Nmeas`, `-mass`, `-seed` for those values, respectively. 
 
-For example, it may looks something like this:
+For example, it may looks something like this in linux:
 
 > $ python3 rng.MaxBoltz.py -temp1 100 -temp2 1000
 
@@ -30,7 +28,7 @@ which would generate the values at 100 K and 1000 K, and keep the other paramete
 
 ## Data Analysis
 
-To run this script from the terminal, run:
+To run this script from the terminal in linux, run:
 
 > plot_MaxBoltz.py
 

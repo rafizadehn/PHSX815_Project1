@@ -17,7 +17,7 @@ def boltz(v,m,T):
     kB = 1.38e-23
     return (m/(2*np.pi*kB*T))**1.5 * 4*np.pi * v**2 * np.exp(-m*v**2/(2*kB*T))
 
-def PSD(s1,s2):
+def PSD(s1,s2): # some stastical analysis to make the power analysis easier
     n1, n2 = len(s1), len(s2)
     var1, var2 = np.var(s1, ddof=1), np.var(s2, ddof=1)
     num = ((n1-1) * var1) + ((n2-1) * var2)

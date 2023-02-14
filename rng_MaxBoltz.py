@@ -8,11 +8,11 @@ from scipy.interpolate import interp1d as interp
 sys.path.append(".")
 from Random import Random
 
-def boltz(v,m,T):
+def boltz(v,m,T): # defines a function that returns a PROBABILITY for a specific set of parameters v, m, and T
     kB = 1.38e-23
     return (m/(2*np.pi*kB*T))**1.5 * 4*np.pi * v**2 * np.exp(-m*v**2/(2*kB*T))
 
-def inv_boltz(v,m,T):
+def inv_boltz(v,m,T): # inverse function inverts it for ease of distribution calculation
     kB = 1.38e-23
     a = np.sqrt(kB*T/m)
     return erf(v/(np.sqrt(2)*a)) - np.sqrt(2/np.pi)* v* np.exp(-v**2/(2*a**2))/a
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     # default temp2 (in kelvin)
     T2 = 320
     
-    # default number of particles 
+    # default number of particles sampled (Nmeas) 
     N = 1000
 
     # default seed
@@ -67,7 +67,7 @@ if __name__ == "__main__":
         p = sys.argv.index('-temp2')
         T2 = int(sys.argv[p+1])
     
-    # exports inputs to a parameter file to be easily transfered for analysis
+    # exports inputs to a parameter file to be easily transfered for analysis in plot_MaxBoltz.py
     parameters = [seed, N, m, T1, T2] 
     with open(r'parameters.txt', 'w') as fp:
         for item in parameters:
@@ -85,13 +85,13 @@ if __name__ == "__main__":
     inv_cdf = interp(cdf,vs,fill_value="extrapolate") # interpolation of previously parameterized equation
     vel = velocities(N, seed)
 
-    with open(r'temp1.txt', 'w') as fp:
+    with open(r'temp1.txt', 'w') as fp: # writes data to external text file
         for item in vel:
             fp.write("%s\n" % item)
 
     ####### TEMP 2:
 
-    cdf2 = inv_boltz(vs, mass, T2)
+    cdf2 = inv_boltz(vs, mass, T2) # same as temp1
     inv_cdf = interp(cdf2, vs, fill_value="extrapolate")
     vel1 = velocities(N, seed)
 
