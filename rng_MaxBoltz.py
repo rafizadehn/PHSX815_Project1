@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # read the user-provided inputs from the command line (if there)
     if '-seed' in sys.argv:
         p = sys.argv.index('-seed')
-        seed = sys.argv[p+1]
+        seed = int(sys.argv[p+1])
     if '-Nmeas' in sys.argv:
         p = sys.argv.index('-Nmeas')
         N = int(sys.argv[p+1])
