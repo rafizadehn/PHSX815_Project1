@@ -54,7 +54,7 @@ if __name__ == "__main__":
         temp2 = sys.argv[p+1]
     if '-param' in sys.argv:
         p = sys.argv.index('-param')
-        m = sys.argv[p+1]
+        param = sys.argv[p+1]
     if '-nbins' in sys.argv:
         p = sys.argv.index('-nbins')
         nb = int(sys.argv[p+1])
